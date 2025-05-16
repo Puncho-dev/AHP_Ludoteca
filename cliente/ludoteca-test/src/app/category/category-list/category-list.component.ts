@@ -55,17 +55,32 @@ export class CategoryListComponent implements OnInit{
           this.ngOnInit();
         });
     }
-    deleteCategory(category: Category) {    
-        const dialogRef = this.dialog.open(DialogConfirmationComponent, {
-          data: { title: "Eliminar categoría", description: "Atención si borra la categoría se perderán sus datos.<br> ¿Desea eliminar la categoría?" }
-        });
-    
-        dialogRef.afterClosed().subscribe(result => {
-          if (result) {
-            this.categoryService.deleteCategory(category.id).subscribe(result => {
-              this.ngOnInit();
-            }); 
-          }
-        });
-    }  
+    deleteCategory(category: Category) {
+      const dialogRef = this.dialog.open(DialogConfirmationComponent, {
+        data: {
+          title: `¿Desea eliminar a ${category.name}?`,
+          description: `Atención si borra la categoria se perderán sus datos.<br> ¿Desea eliminarlo?`,
+        },
+      });
+     
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result) {
+          this.categoryService.deleteCategory(category.id).subscribe({
+            next: () => {
+              this.dialog.open(DialogConfirmationComponent, {
+                data: { title: '', description: 'La categoria se ha eliminado correctamente.', confirm: false }
+              });
+              //this.loadPage(); // Actualiza la lista después de eliminar
+            },
+            error: (error) => {
+              console.error('Error al eliminar la categoria:', error);
+              this.dialog.open(DialogConfirmationComponent, {
+                data: { title: 'Error', description: 'Hubo un error al eliminar la categoria. Por favor, inténtalo de nuevo.', confirm: false }
+              });
+            }
+          });
+        }
+      });
+    }
+
 }

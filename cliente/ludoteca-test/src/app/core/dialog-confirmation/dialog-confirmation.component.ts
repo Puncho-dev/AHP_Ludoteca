@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class DialogConfirmationComponent {
     title!: string;
     description!: string;
+    confirm: boolean = true;
 
     constructor(
         public dialogRef: MatDialogRef<DialogConfirmationComponent>,
@@ -21,6 +22,7 @@ export class DialogConfirmationComponent {
     ngOnInit(): void {
         this.title = this.data.title;
         this.description = this.data.description;
+        this.confirm = this.data.confirm !== false;
     }
 
     onClose(value = false) {

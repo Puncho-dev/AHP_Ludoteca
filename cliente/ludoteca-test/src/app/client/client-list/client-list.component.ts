@@ -58,17 +58,31 @@ export class ClientListComponent implements OnInit{
       });
     }
 
-    deleteClient(client: Client) {    
-      const dialogRef = this.dialog.open(DialogConfirmationComponent, {
-        data: { title: "Eliminar cliente", description: "Atención si borra el cliente se perderán sus datos.<br> ¿Desea eliminar el cliente?" }
-      });
-  
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          this.clientService.deleteClient(client.id).subscribe(result => {
-            this.ngOnInit();
-          }); 
+    deleteClient(client: Client) {
+          const dialogRef = this.dialog.open(DialogConfirmationComponent, {
+            data: {
+              title: `¿Desea eliminar a ${client.name}?`,
+              description: `Atención si borra el cliente se perderán sus datos.<br> ¿Desea eliminarlo?`,
+            },
+          });
+         
+          dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+              this.clientService.deleteClient(client.id).subscribe({
+                next: () => {
+                  this.dialog.open(DialogConfirmationComponent, {
+                    data: { title: '', description: 'El cliente se ha eliminado correctamente.', confirm: false }
+                  });
+                  //this.loadPage(); // Actualiza la lista después de eliminar
+                },
+                error: (error) => {
+                  console.error('Error al eliminar el cliente:', error);
+                  this.dialog.open(DialogConfirmationComponent, {
+                    data: { title: 'Error', description: 'Hubo un error al eliminar el cliente. Por favor, inténtalo de nuevo.', confirm: false }
+                  });
+                }
+              });
+            }
+          });
         }
-      });
-    } 
 }

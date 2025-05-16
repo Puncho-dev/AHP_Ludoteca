@@ -103,21 +103,32 @@ export class LoanListComponent implements OnInit {
   }
 
   deleteLoan(loan: Loan) {
-    const dialogRef = this.dialog.open(DialogConfirmationComponent, {
-      data: {
-        title: 'Eliminar Préstamo',
-        description: 'Atención si borra el préstamo se perderán sus datos.<br> ¿Desea eliminar el préstamo?'
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.loanService.deleteLoan(loan.id).subscribe(() => {
-          this.loadPage();
-        })
-      }
-    })
-  }
+          const dialogRef = this.dialog.open(DialogConfirmationComponent, {
+            data: {
+              title: `¿Desea eliminar el préstamo de ${loan.game.title}?`,
+              description: `Atención si borra el prestamo se perderán sus datos.<br> ¿Desea eliminarlo?`,
+            },
+          });
+         
+          dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+              this.loanService.deleteLoan(loan.id).subscribe({
+                next: () => {
+                  this.dialog.open(DialogConfirmationComponent, {
+                    data: { title: '', description: 'El prestamo se ha eliminado correctamente.', confirm: false }
+                  });
+                  this.loadPage(); // Actualiza la lista después de eliminar
+                },
+                error: (error) => {
+                  console.error('Error al eliminar el prestamo:', error);
+                  this.dialog.open(DialogConfirmationComponent, {
+                    data: { title: 'Error', description: 'Hubo un error al eliminar el prestamo. Por favor, inténtalo de nuevo.', confirm: false }
+                  });
+                }
+              });
+            }
+          });
+        }
 
   createLoan() {
     const dialogRef = this.dialog.open(LoanEditComponent);
