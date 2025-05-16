@@ -60,7 +60,6 @@ export class LoanEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.loan = this.data.loan ? Object.assign({}, this.data.loan) : new Loan();
-
     this.form = new FormGroup({
       id: new FormControl({ value: this.data.loan?.id || '', disabled: true }),
       game: new FormControl(this.data.loan?.game || '', Validators.required),

@@ -11,6 +11,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -78,12 +80,24 @@ public class AuthorController {
      * Método para crear o actualizar un {@link Author}
      *
      * @param id PK de la entidad
-     */
-    @Operation(summary = "Delete", description = "Method that deletes a Author")
-    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
-    public void delete(@PathVariable("id") Long id) throws Exception {
 
-        this.authorService.delete(id);
+     @Operation(summary = "Delete", description = "Method that deletes a Author")
+     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+     public void delete(@PathVariable("id") Long id) throws Exception {
+
+     this.authorService.delete(id);
+     }*/
+
+    /** * Método para eliminar un {@link Author}  *  * @param id PK de la entidad  */
+    @Operation(summary = "Delete", description = "Method that deletes an Author")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable("id") Long id) {
+        try {
+            authorService.delete(id);
+            return ResponseEntity.ok("Author deleted successfully.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting author: " + e.getMessage());
+        }
     }
 
 }

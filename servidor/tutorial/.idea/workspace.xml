@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="293fd7c4-25db-4614-95c7-a0ec770e1331" name="Changes" comment="" />
+    <list default="true" id="293fd7c4-25db-4614-95c7-a0ec770e1331" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ccsw/tutorial/author/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ccsw/tutorial/author/AuthorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ccsw/tutorial/author/AuthorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ccsw/tutorial/author/AuthorController.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +26,7 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -32,7 +36,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/puncho-dev/ludoteca-test.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/Puncho-dev/AHP_Ludoteca.git&quot;,
     &quot;accountId&quot;: &quot;17ce89b7-9b7f-458e-a8c0-7ac9de7af2d5&quot;
   }
 }</component>
@@ -54,26 +58,27 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.TutorialApplication.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JUnit.AuthorIT.executor": "Run",
-    "JUnit.CategoryIT.executor": "Run",
-    "JUnit.CategoryTest.executor": "Run",
-    "JUnit.ClientIT.executor": "Run",
-    "JUnit.ClientIT.findAllShouldReturnAllClients.executor": "Debug",
-    "JUnit.GameIT.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ahernan5/OneDrive - Capgemini/Desktop/github/Alejandro_Hernandez-ludoteca_tutorial/servidor",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TutorialApplication.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JUnit.AuthorIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClientIT.findAllShouldReturnAllClients.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.GameIT.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ahernan5/OneDrive - Capgemini/Desktop/github/AHP_Ludoteca/servidor/tutorial&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.ccsw.tutorial.config" />
