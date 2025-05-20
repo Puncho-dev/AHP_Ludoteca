@@ -99,6 +99,7 @@ export class AuthorListComponent implements OnInit {
           this.dialog.open(DialogConfirmationComponent, {
             data: { title: 'Error', description: 'Hubo un error al eliminar el autor. Por favor, inténtalo de nuevo.', confirm: false }
           });
+          this.loadPage();
         }
       });
     }
